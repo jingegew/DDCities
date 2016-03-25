@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DDCitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="CarId" />
+    </Key>
+    <Property Name="CarId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Make" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Year" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DriverSchedule">
+    <Key>
+      <PropertyRef Name="DriverScheduleId" />
+    </Key>
+    <Property Name="DriverScheduleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LineId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="CarId" Type="bigint" Nullable="false" />
+    <Property Name="RangeFrom" Type="datetime" Nullable="false" />
+    <Property Name="RangeTo" Type="datetime" Nullable="false" />
+    <Property Name="NumberOfSeat" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Line">
+    <Key>
+      <PropertyRef Name="LineId" />
+    </Key>
+    <Property Name="LineId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="From" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="To" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RideRequest">
+    <Key>
+      <PropertyRef Name="RideRequstId" />
+    </Key>
+    <Property Name="RideRequstId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LineId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="RangeFrom" Type="datetime" Nullable="false" />
+    <Property Name="RangeTo" Type="datetime" Nullable="false" />
+    <Property Name="NumberOfRider" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DriverSchedule_ToCar">
+    <End Role="Car" Type="Self.Car" Multiplicity="1" />
+    <End Role="DriverSchedule" Type="Self.DriverSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="CarId" />
+      </Principal>
+      <Dependent Role="DriverSchedule">
+        <PropertyRef Name="CarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverSchedule_ToLine">
+    <End Role="Line" Type="Self.Line" Multiplicity="1" />
+    <End Role="DriverSchedule" Type="Self.DriverSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Line">
+        <PropertyRef Name="LineId" />
+      </Principal>
+      <Dependent Role="DriverSchedule">
+        <PropertyRef Name="LineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverSchedule_ToUser">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="DriverSchedule" Type="Self.DriverSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="DriverSchedule">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RideRequest_ToLine">
+    <End Role="Line" Type="Self.Line" Multiplicity="1" />
+    <End Role="RideRequest" Type="Self.RideRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Line">
+        <PropertyRef Name="LineId" />
+      </Principal>
+      <Dependent Role="RideRequest">
+        <PropertyRef Name="LineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RideRequest_ToUser">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="RideRequest" Type="Self.RideRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="RideRequest">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DDCitiesModelStoreContainer">
+    <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DriverSchedule" EntityType="Self.DriverSchedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Line" EntityType="Self.Line" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RideRequest" EntityType="Self.RideRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DriverSchedule_ToCar" Association="Self.FK_DriverSchedule_ToCar">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="DriverSchedule" EntitySet="DriverSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverSchedule_ToLine" Association="Self.FK_DriverSchedule_ToLine">
+      <End Role="Line" EntitySet="Line" />
+      <End Role="DriverSchedule" EntitySet="DriverSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverSchedule_ToUser" Association="Self.FK_DriverSchedule_ToUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="DriverSchedule" EntitySet="DriverSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RideRequest_ToLine" Association="Self.FK_RideRequest_ToLine">
+      <End Role="Line" EntitySet="Line" />
+      <End Role="RideRequest" EntitySet="RideRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RideRequest_ToUser" Association="Self.FK_RideRequest_ToUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="RideRequest" EntitySet="RideRequest" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

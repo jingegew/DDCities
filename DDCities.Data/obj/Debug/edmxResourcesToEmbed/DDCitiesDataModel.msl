@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DDCitiesModelStoreContainer" CdmEntityContainer="DDCitiesEntities">
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="DDCitiesModel.Car">
+        <MappingFragment StoreEntitySet="Car">
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DDCitiesModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="DDCitiesModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address1" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriverSchedules">
+      <EntityTypeMapping TypeName="DDCitiesModel.DriverSchedule">
+        <MappingFragment StoreEntitySet="DriverSchedule">
+          <ScalarProperty Name="LastUpdateOn" ColumnName="LastUpdateOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Repeats" ColumnName="Repeats" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="NumberOfSeat" ColumnName="NumberOfSeat" />
+          <ScalarProperty Name="LeaveBefore" ColumnName="LeaveBefore" />
+          <ScalarProperty Name="LeaveAfter" ColumnName="LeaveAfter" />
+          <ScalarProperty Name="ToAddressId" ColumnName="ToAddressId" />
+          <ScalarProperty Name="FromAddressId" ColumnName="FromAddressId" />
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DriverScheduleId" ColumnName="DriverScheduleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lines">
+      <EntityTypeMapping TypeName="DDCitiesModel.Line">
+        <MappingFragment StoreEntitySet="Line">
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="LineId" ColumnName="LineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RideRequests">
+      <EntityTypeMapping TypeName="DDCitiesModel.RideRequest">
+        <MappingFragment StoreEntitySet="RideRequest">
+          <ScalarProperty Name="LastUpdateOn" ColumnName="LastUpdateOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="NumberOfRider" ColumnName="NumberOfRider" />
+          <ScalarProperty Name="LeaveBefore" ColumnName="LeaveBefore" />
+          <ScalarProperty Name="LeaveAfter" ColumnName="LeaveAfter" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ToAddressId" ColumnName="ToAddressId" />
+          <ScalarProperty Name="FromAddressId" ColumnName="FromAddressId" />
+          <ScalarProperty Name="RideRequstId" ColumnName="RideRequstId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2559046ff5da4cf9934669c83f414854" Name="Diagram1">
+        <EntityTypeShape EntityType="DDCitiesModel.Car" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DDCitiesModel.User" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DDCitiesModel.Address" Width="1.5" PointX="3.375" PointY="4" />
+        <EntityTypeShape EntityType="DDCitiesModel.DriverSchedule" Width="1.5" PointX="5.625" PointY="3.125" />
+        <EntityTypeShape EntityType="DDCitiesModel.Line" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DDCitiesModel.RideRequest" Width="1.5" PointX="5.625" PointY="8.125" />
+        <AssociationConnector Association="DDCitiesModel.FK_DriverSchedule_ToFromAddressId" />
+        <AssociationConnector Association="DDCitiesModel.FK_DriverSchedule_ToToAddressId" />
+        <AssociationConnector Association="DDCitiesModel.FK_RideRequest_ToFromAddressId" />
+        <AssociationConnector Association="DDCitiesModel.FK_RideRequest_ToToAddressId" />
+        <AssociationConnector Association="DDCitiesModel.FK_DriverSchedule_ToCar" />
+        <AssociationConnector Association="DDCitiesModel.FK_DriverSchedule_ToUser" />
+        <AssociationConnector Association="DDCitiesModel.FK_RideRequest_ToUser" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

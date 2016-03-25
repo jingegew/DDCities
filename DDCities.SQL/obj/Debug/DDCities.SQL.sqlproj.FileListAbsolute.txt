@@ -1,0 +1,18 @@
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\DDCities.Data\bin\Debug\DDCities.SQL.dacpac
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\DDCities.Data\bin\Debug\DDCities.Data.dll
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\DDCities.Data\bin\Debug\DDCities.Data.pdb
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\DDCities.Data\obj\Debug\Model.xml
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\DDCities.Data\obj\Debug\refactor.xml
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\DDCities.Data\obj\Debug\postdeploy.sql
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\DDCities.Data\obj\Debug\predeploy.sql
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\DDCities.Data\obj\Debug\DDCities.Data.dll
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\DDCities.Data\obj\Debug\DDCities.Data.pdb
+C:\DDCities\DDCities.SQL\bin\Debug\DDCities.SQL.dacpac
+C:\DDCities\DDCities.SQL\bin\Debug\DDCities.Data.dll
+C:\DDCities\DDCities.SQL\bin\Debug\DDCities.Data.pdb
+C:\DDCities\DDCities.SQL\obj\Debug\Model.xml
+C:\DDCities\DDCities.SQL\obj\Debug\refactor.xml
+C:\DDCities\DDCities.SQL\obj\Debug\postdeploy.sql
+C:\DDCities\DDCities.SQL\obj\Debug\predeploy.sql
+C:\DDCities\DDCities.SQL\obj\Debug\DDCities.Data.dll
+C:\DDCities\DDCities.SQL\obj\Debug\DDCities.Data.pdb

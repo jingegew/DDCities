@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DDCitiesModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Lines">
+      <EntityTypeMapping TypeName="DDCitiesModel.Line">
+        <MappingFragment StoreEntitySet="Line">
+          <ScalarProperty Name="LineId" ColumnName="LineId" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="To" ColumnName="To" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RideRequests">
+      <EntityTypeMapping TypeName="DDCitiesModel.RideRequest">
+        <MappingFragment StoreEntitySet="RideRequest">
+          <ScalarProperty Name="RideRequstId" ColumnName="RideRequstId" />
+          <ScalarProperty Name="LineId" ColumnName="LineId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RangeFrom" ColumnName="RangeFrom" />
+          <ScalarProperty Name="RangeTo" ColumnName="RangeTo" />
+          <ScalarProperty Name="NumberOfRider" ColumnName="NumberOfRider" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="LastUpdateOn" ColumnName="LastUpdateOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DDCitiesModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

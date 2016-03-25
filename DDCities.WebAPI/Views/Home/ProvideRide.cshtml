@@ -1,0 +1,194 @@
+﻿@model DDCities.WebAPI.Models.DriverTripModel
+@{
+    ViewBag.Title = "Driver Schedule";
+}
+
+<h2>Driver Schedule</h2>
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/moment.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datetimepicker.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-multiselect.js")" type="text/javascript"></script>
+    <script>
+
+        $(document).ready(function() {
+
+            $('#RepeatsDay').multiselect({
+                nonSelectedText: 'Only Once',
+                numberDisplayed: 7
+            });
+
+            $("#PostDriverSchedule").click(function() {
+                var driverSchedule = $('#driverScheduleForm').serialize();
+                $.ajax({
+                    url: 'http://localhost:58775/api/Driver/ProcessDriverSchedule',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: driverSchedule,
+                    success: function() {
+                        window.location.href = "http://localhost:58775/Home/Success";
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        alert(textStatus);
+                    }
+                });
+            });
+
+            $('#datetimepicker6').datetimepicker();
+            $('#datetimepicker7').datetimepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#datetimepicker6").on("dp.change", function(e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker7").on("dp.change", function(e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+
+        });
+    </script>
+}
+
+
+<form id="driverScheduleForm" class="form-horizontal">
+    <fieldset>
+        <legend>Driver Info</legend>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Driver License No.</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(m => m.DriverInfo.DriverLicense, new { placeholder = "Driver License No.", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-5">
+                @Html.TextBoxFor(m => m.DriverInfo.FirstName, new {placeholder = "First Name", @class = "form-control"})
+            </div>
+            <div class="col-sm-5">
+                @Html.TextBoxFor(m => m.DriverInfo.LastName, new { placeholder = "Last Name", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Phone</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(m => m.DriverInfo.Phone, new { placeholder = "Phone", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(m => m.DriverInfo.Email, new { placeholder = "Email", @class = "form-control" })
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Car Info</legend>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Make</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(m => m.CarInfo.Make, new {placeholder = "Car Make", @class = "form-control"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Model</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(m => m.CarInfo.Model, new {placeholder = "Model", @class = "form-control"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Year</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(m => m.CarInfo.Year, new {placeholder = "Year", @class = "form-control"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Type</label>
+            <div class="col-sm-10">
+                @Html.DropDownListFor(m => m.CarInfo.SelectedCarType, Model.CarInfo.CarTypeList, "Select a Car Type", new {@class = "form-control"})
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Travel Schedule</legend>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">From</label>
+            <div class="col-sm-5">
+                @Html.TextBoxFor(m => m.FromAddress, new {placeholder = "Street Address", @class = "form-control"})
+            </div>
+            <div class="col-sm-3">
+                @Html.TextBoxFor(m => m.FromCity, new {placeholder = "City", @class = "form-control"})
+            </div>
+            <div class="col-sm-2">
+                @Html.TextBoxFor(m => m.FromState, new { placeholder = "State", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">To</label>
+            <div class="col-sm-5">
+                @Html.TextBoxFor(m => m.ToAddress, new { placeholder = "Street Address", @class = "form-control" })
+            </div>
+            <div class="col-sm-3">
+                @Html.TextBoxFor(m => m.ToCity, new { placeholder = "City", @class = "form-control" })
+            </div>
+            <div class="col-sm-2">
+                @Html.TextBoxFor(m => m.ToState, new { placeholder = "State", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Date Time From</label>
+            <div class='col-sm-10 input-group date' id='datetimepicker6'>
+                <input name="LeaveAfter" type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Date Time To</label>
+            <div class=' col-sm-10 input-group date' id='datetimepicker7'>
+                <input name="LeaveBefore" type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Number Of Seat</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(m => m.SeatNumber, new {id = "inputPassword3", placeholder = "Number Of Seat", @class = "form-control"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Asking Gas</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(m => m.Fee, new { id = "inputPassword3", placeholder = "The money you would like to charge which is optional", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Repeats</label>
+            <div class="col-sm-10">
+                <select id="RepeatsDay" name="Repeats" multiple="multiple" class="col-sm-5">
+                    <option value="1">Sunday</option>
+                    <option value="2">Monday</option>
+                    <option value="3">Tuesday</option>
+                    <option value="4">Wednesday</option>
+                    <option value="5">Thursday</option>
+                    <option value="6">Friday</option>
+                    <option value="7">Saturday</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Comments</label>
+            <div class="col-sm-10">
+                @Html.TextAreaFor(m => m.Comment, new { id = "inputPassword3", placeholder = "Your comments", @class = "form-control" })
+            </div>
+        </div>
+    </fieldset>
+</form>
+<div class="col-sm-offset-2 col-sm-10">
+    <button id="PostDriverSchedule" class="btn btn-primary">Post</button>
+</div>

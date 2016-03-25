@@ -1,0 +1,9 @@
+C:\DDCities\DDCities.Business\bin\Debug\DDCities.Business.dll
+C:\DDCities\DDCities.Business\bin\Debug\DDCities.Business.pdb
+C:\DDCities\DDCities.Business\bin\Debug\DDCities.Data.dll
+C:\DDCities\DDCities.Business\bin\Debug\EntityFramework.dll
+C:\DDCities\DDCities.Business\bin\Debug\DDCities.Data.pdb
+C:\DDCities\DDCities.Business\bin\Debug\EntityFramework.xml
+C:\DDCities\DDCities.Business\obj\Debug\DDCities.Business.csprojResolveAssemblyReference.cache
+C:\DDCities\DDCities.Business\obj\Debug\DDCities.Business.dll
+C:\DDCities\DDCities.Business\obj\Debug\DDCities.Business.pdb

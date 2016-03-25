@@ -1,0 +1,1 @@
+c:\users\jwang\Documents\Visual Studio 2013\Projects\DDCities\DDCities.Tests\obj\Debug\DDCities.Tests.csprojResolveAssemblyReference.cache

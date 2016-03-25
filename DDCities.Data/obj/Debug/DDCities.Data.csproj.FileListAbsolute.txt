@@ -1,0 +1,10 @@
+C:\DDCities\DDCities.Data\bin\Debug\DDCities.Data.dll.config
+C:\DDCities\DDCities.Data\bin\Debug\DDCities.Data.dll
+C:\DDCities\DDCities.Data\bin\Debug\DDCities.Data.pdb
+C:\DDCities\DDCities.Data\bin\Debug\EntityFramework.dll
+C:\DDCities\DDCities.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\DDCities\DDCities.Data\bin\Debug\EntityFramework.xml
+C:\DDCities\DDCities.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\DDCities\DDCities.Data\obj\Debug\DDCities.Data.csprojResolveAssemblyReference.cache
+C:\DDCities\DDCities.Data\obj\Debug\DDCities.Data.dll
+C:\DDCities\DDCities.Data\obj\Debug\DDCities.Data.pdb

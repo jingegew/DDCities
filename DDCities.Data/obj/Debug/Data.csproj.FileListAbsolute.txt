@@ -1,0 +1,10 @@
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\Data\bin\Debug\Data.dll.config
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\Data\bin\Debug\Data.dll
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\Data\bin\Debug\Data.pdb
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\Data\bin\Debug\EntityFramework.dll
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\Data\bin\Debug\EntityFramework.SqlServer.dll
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\Data\bin\Debug\EntityFramework.xml
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\Data\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\Data\obj\Debug\Data.dll
+c:\Users\jwang\Documents\Visual Studio 2013\Projects\DDCities\Data\obj\Debug\Data.pdb

@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Driver Schedule";
+}
+
+@section scripts
+{
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script>
+
+        var RideApp = angular.module('RideApp', []);
+
+        RideApp.controller('DriverController', function($scope, driverService) {
+
+            getDriverSchedules();
+
+            function getDriverSchedules() {
+                driverService.getDriverSchedules()
+                    .success(function(schedules) {
+                        $scope.schedules = schedules;
+                        console.log($scope.rides);
+                    })
+                    .error(function(error) {
+                        $scope.status = 'Unable to load customer data: ' + error.message;
+                        console.log($scope.status);
+                    });
+            }
+
+        });
+
+        RideApp.factory('driverService', [
+            '$http', function($http) {
+
+                var driverService = {};
+                driverService.getDriverSchedules = function() {
+                    return $http.get('http://localhost:58775/api/Driver/GetDriverSchedules');
+                };
+                return driverService;
+
+            }
+        ]);
+
+    </script>
+}
+<h2>All Driver Schedules</h2>
+
+<div ng-app="RideApp" class="container">
+    <br />
+    <br />
+    <input type="text" placeholder="Search Schedules" ng-model="searchSchedules" />
+    <br />
+    <div ng-controller="DriverController">
+        <table class="table table-hover">
+            <thead>
+                <tr><th>From</th> <th>To</th> <th>Leaving Time Range</th><th>Car Info</th><th>Diver Info</th><th>Action</th></tr>
+            </thead>
+            <tr ng-repeat="r in schedules | filter:searchSchedules">
+                <td>{{r.From}}</td>
+                <td>{{r.To}}</td>
+                <td>{{r.RangeFrom}} - {{r.RangeTo}}</td>
+                <td>{{r.Make}} - {{r.Model}} {{r.Year}}</td>
+                <td>Register to View</td>
+                <td>Register to reserve seats</td>
+            </tr>
+        </table>
+    </div>
+</div>
